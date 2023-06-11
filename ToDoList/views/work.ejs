@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        *{
+            background-color: rgb(228, 195, 200);
+        }
+    </style>
+</head>
+<body>
+    <%- include("partials/header") -%>
+    <br>
+    <br>
+    <h2 style="margin-left: 50px;"><%= listType %></h2>
+    <form>
+        <input type="text" name="newItem" id="it" placeholder="add item"><br>
+        <button type="submit" formmethod="post" formaction="/work" name="item-sub-btn" class="primary-btn work-btn" style="cursor: pointer;">ADD</button>
+        <button name="back" formmethod="get" formaction="/" id="back-btn" class="primary-btn" style="cursor: pointer;" >BACK</button>
+    </form>
+
+   <% wItems.forEach(function(it){ %>
+    <h3 class="list-items"><%= it %></h3>
+    <% }); %> 
+
+</body>
+</html>

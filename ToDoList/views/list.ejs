@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's a day today??</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <%- include("partials/header") -%>
+
+        <br>
+        <br>
+    <div class="cont">
+
+        <div class="work">
+            <h1 style="margin-left: 50px;"><%= listType %></h1>
+            <form>
+            <button formaction="/list" formmethod="post" type="submit" name="list-btn" id="home-btn" class="primary-btn">Make List</button>
+            </form>
+        </div>
+
+        <div class="home-list">
+            <form class="home-form">
+                <input type="text" name="item" id="i" placeholder="Add Item">
+                <button name="listAddBtn" formmethod="post" formaction="/" value="<%= listType %>"  class="home-add-btn">+</button>
+            </form>
+            <% items.forEach(function(i){ %>
+        <form action="/delete/<%= listType %>" method="post">
+            <div class="lis">
+                <input type="checkbox" class="check" name="checkbox" value="<%= i._id %>" onChange="this.form.submit()">
+                <h3 class="list-item"><%= i.name %></h3>
+            </div>
+        </form>
+            <% }); %>
+        </div>
+
+    </div>
+
+</body>
+</html>
